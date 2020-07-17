@@ -1,0 +1,8 @@
+/mobileapp/node_modules
+/admin/node_modules
+/webserver/node_modules
+
+/mobileapp/ios/Pods
+/mobileapp/ios
+/mobileapp/build
+/mobileapp/android
