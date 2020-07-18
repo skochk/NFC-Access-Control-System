@@ -1,18 +1,18 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var bodyParser = require('body-parser');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 
 
-var indexRouter = require('./routes/index');
-var eventRouter = require('./routes/event');
-var APIrouter = require('./routes/api');
-
-var app = express();
+const indexRouter = require('./routes/index');
+const eventRouter = require('./routes/event');
+const APIrouter = require('./routes/api');
+const keys = require("./keys.json")
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,15 +24,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static(process.cwd() + '/uploads'))
-var cors = require('cors');
+const cors = require('cors');
 app.use(cors());
+
 
 
 app.use('/', indexRouter);
 app.use('/event', eventRouter);
 app.use('/api', APIrouter);
-var db = mongoose.connection;
-mongoose.connect('mongodb+srv://admin:kHsIKrhbYGoGFXS7@cluster0-zzaup.mongodb.net/diploma?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
+const db = mongoose.connection;
+mongoose.connect(keys.dbaccess, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set('useFindAndModify', false);
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {  
