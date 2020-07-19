@@ -1,5 +1,5 @@
 # NFC Access Control System
-Allow to log and controll access NFC tags with NDEF protocol. Interaction with NFC tags going with React native app which making request to Node.js server.
+Allow to log and controll access for NTAG213 NFC tags by NDEF protocol with mobile app. Interaction with NFC tags going with React native app which making request to Node.js server.
 
 
 ## Installation
