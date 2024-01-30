@@ -7,7 +7,7 @@ Allow to log and controll access for NTAG213 NFC tags by NDEF protocol with mobi
 Use the package manager npm to install node_modules for each project. For webserver create file keys.json by example. In mobileapp/App.js you have to setup ip address of your webserver, for mine it was local ip for my pc at local network.
 
 ## Usage
-The project consist three parts: Node.js webserver with MongoDB database. React app with admin panel. React native with mobile app. You have to run each of them.
+The project consists of three parts: Node.js webserver with MongoDB database. React app with admin panel. React native with mobile app. You have to run each of them.
 ## Screenshots
 Admin panel view & features
 
