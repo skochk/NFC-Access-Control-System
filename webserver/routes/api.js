@@ -84,9 +84,9 @@ router.post('/updatetag', upload.single('photo'), async function(req,res){
     let {identificatorNFC,permission} = req.body
     let changing;
     try{
-        if(req.file.filename && req.body.permission){
+        if(req.file && req.file.filename && req.body.permission){
             changing = await tagsModel.findOneAndUpdate({identificatorNFC: identificatorNFC},{photo:req.file.filename,permission:permission},{upsert: true});
-        }else if(req.file.filename){
+        }else if(req.file && req.file.filename){
             changing = await tagsModel.findOneAndUpdate({identificatorNFC: identificatorNFC},{photo:req.file.filename},{upsert: true});
         }else if(req.body.permission){
             changing = await tagsModel.findOneAndUpdate({identificatorNFC: identificatorNFC},{permission:permission},{upsert: true});
